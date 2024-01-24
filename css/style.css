@@ -9,3 +9,23 @@
 body {
     font-family: 'Montserrat', sans-serif;
 }
+
+/*? Main */
+main {
+    background-image: linear-gradient(#009688, #d9dbd5, #d9dbd5, #d9dbd5);
+    height: 100vh;
+}
+
+.container {
+    height: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-box {
+    background-color: goldenrod;
+    height: 100%;
+    width: 100%;
+}
