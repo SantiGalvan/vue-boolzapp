@@ -33,6 +33,7 @@ main {
 .sidebar {
     flex-basis: calc(100% / 1/3);
 
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
 }
