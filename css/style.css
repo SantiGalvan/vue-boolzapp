@@ -52,5 +52,25 @@ main {
 /* Main Section */
 .main-section {
     flex-grow: 1;
-    background-color: firebrick;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.section-header {
+    flex-basis: 80px;
+    background-color: seagreen;
+    flex-shrink: 0;
+}
+
+.chat {
+    flex-grow: 1;
+    background-color: salmon;
+    overflow: auto;
+}
+
+.actions {
+    flex-basis: 80px;
+    flex-shrink: 0;
+    background-color: sandybrown;
 }
