@@ -41,8 +41,25 @@ main {
 /* Sidebar Header */
 .sidebar-header {
     flex-basis: calc(100% / 1/3);
-    background-color: greenyellow;
     flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.header-top {
+    flex-basis: 80px;
+    background-color: cyan;
+}
+
+.header-alert {
+    flex-grow: 1;
+    background-color: fuchsia;
+}
+
+.header-search {
+    flex-basis: 80px;
+    background-color: darkorange;
 }
 
 /* Sidebar Main */
@@ -63,15 +80,15 @@ main {
 /* Section Header */
 .section-header {
     flex-basis: 80px;
-    background-color: seagreen;
     flex-shrink: 0;
+    background-color: seagreen;
 }
 
 /* Chat */
 .chat {
     flex-grow: 1;
-    background-color: salmon;
     overflow: auto;
+    background-color: salmon;
 }
 
 /* Actions */
