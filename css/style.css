@@ -21,6 +21,7 @@ main {
     padding: 20px 0;
 }
 
+/* Main Box */
 .main-box {
     height: 100%;
     width: 100%;
@@ -28,11 +29,25 @@ main {
     display: flex;
 }
 
-.navbar {
+/* Sidebar */
+.sidebar {
     flex-basis: calc(100% / 1/3);
-    background-color: dodgerblue;
+
+    display: flex;
+    flex-direction: column;
 }
 
+.sidebar-header {
+    flex-basis: calc(100% / 1/3);
+    background-color: greenyellow;
+}
+
+.sidebar-main {
+    flex-grow: 1;
+    background-color: khaki;
+}
+
+/* Main Section */
 .main-section {
     flex-grow: 1;
     background-color: firebrick;
