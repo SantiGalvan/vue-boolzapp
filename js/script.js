@@ -195,6 +195,15 @@ const app = createApp({
         ],
         activeId: 1
     }),
+    computed: {
+        currentContact() {
+            const newContacts = this.contacts.find((contact) => {
+                if (contact.id === this.activeId) return true;
+                else return false
+            })
+            return newContacts
+        }
+    },
     methods: {
         getAvataUrl({ avatar }) {
             return `img/avatar${avatar}.jpg`
