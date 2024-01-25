@@ -186,12 +186,22 @@ main {
 .chat {
     flex-grow: 1;
     overflow: auto;
-    background-color: salmon;
+    background-image: url('../img/mine.jpg');
 }
 
 /** Footer */
 footer {
     flex-basis: 80px;
     flex-shrink: 0;
-    background-color: sandybrown;
+    background-color: #f3eeea;
+    flex-shrink: 0;
+}
+
+footer i {
+    color: #6b7376;
+    font-size: 30px;
+}
+
+footer .form-control {
+    padding: 6px 12px;
 }
