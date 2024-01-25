@@ -24,7 +24,7 @@ main {
     display: flex;
 }
 
-/* Sidebar */
+/** Sidebar */
 .sidebar {
     flex-basis: calc(100% / 1/3);
     border-right: 1px solid black;
@@ -52,16 +52,21 @@ main {
     justify-content: space-between;
 }
 
-.user-info {
+.info-media {
     display: flex;
 }
 
-.user-info h5 {
+.info-media figure {
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.info-media h5 {
     line-height: 80px;
     margin: 0;
 }
 
-.user-img {
+.info-media img {
     width: 60px;
     border-radius: 50%;
     margin: 10px;
@@ -75,12 +80,10 @@ main {
     margin-right: 20px;
 }
 
-.info-actions a {
-    color: #b1b1b1;
-}
-
 .info-actions i {
     font-size: 30px;
+    cursor: pointer;
+    color: #b1b1b1;
 }
 
 /* Header Alert */
@@ -116,6 +119,9 @@ main {
     height: 80px;
     flex-shrink: 0;
     background-color: #eaeaea;
+
+    display: flex;
+    justify-content: space-between;
 }
 
 /* Chat */
