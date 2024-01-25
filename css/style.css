@@ -27,6 +27,7 @@ ul {
 main {
     height: 100%;
     border: 1px solid lightgray;
+    border-radius: 3px;
 
     display: flex;
 }
@@ -153,6 +154,7 @@ main {
     flex-grow: 1;
     background-color: #fff;
     overflow: auto;
+    border-radius: 0 0 0 3px;
 }
 
 .contacts {
@@ -227,6 +229,7 @@ footer {
     flex-shrink: 0;
     background-color: #f3eeea;
     flex-shrink: 0;
+    border-radius: 0 0 3px 0;
 }
 
 footer i {
