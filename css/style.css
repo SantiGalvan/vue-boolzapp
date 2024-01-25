@@ -190,6 +190,37 @@ main {
     background-image: url('../img/mine.jpg');
 }
 
+.chat-message {
+    display: flex;
+}
+
+.chat-message.sent {
+    justify-content: flex-end;
+}
+
+.chat-message.received {
+    justify-content: flex-start;
+}
+
+.chat-message.sent .message {
+    background-color: #d5f9ba;
+}
+
+.chat-message.received .message {
+    background-color: #fff;
+}
+
+.message p {
+    margin-bottom: 0;
+}
+
+.message time {
+    display: block;
+    text-align: right;
+    font-size: 10px;
+    color: rgb(202, 188, 188);
+}
+
 /** Footer */
 footer {
     flex-basis: 80px;
