@@ -192,7 +192,8 @@ const app = createApp({
                     }
                 ],
             }
-        ]
+        ],
+        activeId: 1
     }),
     methods: {
         getAvataUrl({ avatar }) {
