@@ -19,6 +19,8 @@ body {
 
 ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 /*? Main */
@@ -148,8 +150,17 @@ main {
 /** Sidebar Main */
 .sidebar-main {
     flex-grow: 1;
-    background-color: khaki;
+    background-color: #fff;
     overflow: auto;
+}
+
+.contacts {
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.contacts .info-media:hover {
+    cursor: pointer;
+    background-color: lightgray;
 }
 
 /*? Main Section */
