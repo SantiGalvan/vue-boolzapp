@@ -199,6 +199,9 @@ const app = createApp({
         getAvataUrl({ avatar }) {
             return `img/avatar${avatar}.jpg`
         },
+        changeId(id) {
+            this.activeId = id;
+        }
     }
 });
 app.mount('#root');
