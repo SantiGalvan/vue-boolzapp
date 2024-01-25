@@ -197,10 +197,7 @@ const app = createApp({
     }),
     computed: {
         currentContact() {
-            const newContacts = this.contacts.find((contact) => {
-                if (contact.id === this.activeId) return true;
-                else return false
-            })
+            const newContacts = this.contacts.find((contact) => contact.id === this.activeId)
             return newContacts
         }
     },
