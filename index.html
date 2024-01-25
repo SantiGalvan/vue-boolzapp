@@ -52,10 +52,10 @@
                     <div class="header-info">
                         <div class="info-media">
                             <figure>
-                                <img src="img/avatar_io.jpg" alt="">
+                                <img :src="getAvataUrl(user)" :alt="user.name">
                             </figure>
                             <div class="info-text">
-                                <h5>Nome utente</h5>
+                                <h5>{{user.name}}</h5>
                             </div>
                         </div>
                         <div class="info-actions">
@@ -92,13 +92,13 @@
                 <!-- Sidebar Main -->
                 <section class="sidebar-main">
                     <ul>
-                        <li class="contacts">
+                        <li class="contacts" v-for="contact in contacts">
                             <div class="info-media">
                                 <figure>
-                                    <img src="img/avatar_5.jpg" alt="">
+                                    <img :src="getAvataUrl(contact)" :alt="contact.name">
                                 </figure>
                                 <div class="info-text">
-                                    <h5>Filippo</h5>
+                                    <h5>{{contact.name}}</h5>
                                 </div>
                             </div>
                         </li>

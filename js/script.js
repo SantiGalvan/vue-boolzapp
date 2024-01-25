@@ -193,6 +193,11 @@ const app = createApp({
                 ],
             }
         ]
-    })
+    }),
+    methods: {
+        getAvataUrl({ avatar }) {
+            return `img/avatar${avatar}.jpg`
+        }
+    }
 });
 app.mount('#root');
