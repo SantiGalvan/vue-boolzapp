@@ -210,17 +210,25 @@ const app = createApp({
             this.activeId = id;
         },
         addNewMessage() {
-            console.log('Devi aggiungere ' + this.newMessageText)
-
             const newMessage = {
                 id: new Date().toISOString,
                 date: new Date().toLocaleString(),
                 text: this.newMessageText,
                 status: 'sent'
-            }
+            };
 
             this.currentContact.messages.push(newMessage);
             this.newMessageText = '';
+
+            setTimeout(() => {
+                const newMessage = {
+                    id: new Date().toISOString,
+                    date: new Date().toLocaleString(),
+                    text: 'Ok',
+                    status: 'received'
+                }
+                this.currentContact.messages.push(newMessage)
+            }, 1000);
         }
     }
 });
