@@ -207,10 +207,13 @@ main {
 
 .chat-message.sent .message {
     background-color: #d5f9ba;
+    padding-right: 20px;
 }
 
 .chat-message.received .message {
     background-color: #fff;
+    padding-left: 20px;
+    padding-right: 0.5rem;
 }
 
 .message p {
@@ -222,6 +225,35 @@ main {
     text-align: right;
     font-size: 10px;
     color: rgb(202, 188, 188);
+}
+
+.message {
+    position: relative;
+    padding: 0.5rem;
+}
+
+.message i {
+    cursor: pointer;
+    color: #b1b1b1;
+
+    position: absolute;
+    display: none;
+}
+
+.chat-message.sent .message i {
+    top: 0;
+    right: 0;
+    translate: -20% 20%;
+}
+
+.chat-message.received .message i {
+    top: 0;
+    left: 0;
+    translate: 5% 20%;
+}
+
+.message:hover i {
+    display: inline-block;
 }
 
 /** Footer */
