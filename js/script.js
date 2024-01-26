@@ -195,7 +195,9 @@ const app = createApp({
         ],
         activeId: 1,
         newMessageText: '',
-        searchContact: ''
+        searchContact: '',
+        activeMessage: 1,
+        isShow: false
     }),
     computed: {
         currentContact() {
@@ -207,6 +209,9 @@ const app = createApp({
         filteredContacts() {
             const searchTerm = this.searchContact.toLowerCase();
             return this.contacts.filter((contact) => contact.name.toLowerCase().includes(searchTerm))
+        },
+        currentMessage() {
+            return this.currentChat.find((message) => message.id === this.activeMessage)
         }
     },
     methods: {
@@ -235,6 +240,11 @@ const app = createApp({
             setTimeout(() => {
                 this.addNewMessage('Ok', 'received')
             }, 1000);
+        },
+        changeShow(id) {
+            this.isShow = !this.isShow;
+            this.activeMessage = id;
+            console.log(this.activeMessage);
         }
     }
 });
