@@ -199,6 +199,9 @@ const app = createApp({
     computed: {
         currentContact() {
             return this.contacts.find((contact) => contact.id === this.activeId)
+        },
+        currentChat() {
+            return this.currentContact.messages
         }
     },
     methods: {
@@ -216,7 +219,7 @@ const app = createApp({
                 status
             };
 
-            this.currentContact.messages.push(newMessage);
+            this.currentChat.push(newMessage);
         },
         sendNewMessage() {
             if (!this.newMessageText) return
