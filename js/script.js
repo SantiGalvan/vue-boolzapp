@@ -200,28 +200,48 @@ const app = createApp({
         isShow: false
     }),
     computed: {
+
+        // Creo una computed per sapere qual è il contatto da visualizzare
         currentContact() {
             return this.contacts.find((contact) => contact.id === this.activeId)
         },
+
+        // Creo una computed per sapere qual è la chat da visualizzare
         currentChat() {
             return this.currentContact.messages
         },
+
+        // Creo una computed per poter filtrare in tempo reale i contatti
         filteredContacts() {
+
+            // Creo una nuova variabile per mettere il toLowerCase qui
             const searchTerm = this.searchContact.toLowerCase();
+
+            // Creo un nuovo array con gli elementi filtrati
             return this.contacts.filter((contact) => contact.name.toLowerCase().includes(searchTerm))
         },
+
+        // Creo una computed per vedere qual è il messaggio selezionato
         currentMessage() {
             return this.currentChat.find((message) => message.id === this.activeMessage)
         }
     },
     methods: {
+
+        // Metodo per ricavare la foto dei contatti
         getAvataUrl({ avatar }) {
             return `img/avatar${avatar}.jpg`
         },
+
+        // Metodo per settare l'id attivo con quello del contatto
         setActiveId(id) {
             this.activeId = id;
         },
+
+        // Metodo per creare il nuovo messaggio, verrà richiamata solo all'interno del metodo sendNewMessage
         addNewMessage(text, status) {
+
+            // Creo il nuovo oggetto (messaggio)
             const newMessage = {
                 id: new Date().toISOString(),
                 date: new Date().toLocaleString(),
@@ -229,21 +249,40 @@ const app = createApp({
                 status
             };
 
+            // Pusho l'oggetto
             this.currentChat.push(newMessage);
         },
+
+        // Metodo per inviare il nuovo messaggio
         sendNewMessage() {
+
+            // Verifico che l'input sia vuoto
             if (!this.newMessageText) return
+
+            // Stampo il messaggio in pagina
             this.addNewMessage(this.newMessageText, 'sent')
 
+            // Svuoto l'input
             this.newMessageText = '';
 
+            // Auto risposta dopo 1 secondo
             setTimeout(() => {
+
+                // Stampo il messaggio in pagina
                 this.addNewMessage('Ok', 'received')
             }, 1000);
         },
+
+        // Creo un metodo per far apparire il drop-down
         changeShow(id) {
+
+            // Creo il toogle al click
             this.isShow = !this.isShow;
+
+            // Setto l'activeId con l'id del messaggio cliccato
             this.activeMessage = id;
+
+            // Stampo in console l'id del messaggio attivo
             console.log(this.activeMessage);
         }
     }
