@@ -198,8 +198,7 @@ const app = createApp({
     }),
     computed: {
         currentContact() {
-            const newContacts = this.contacts.find((contact) => contact.id === this.activeId)
-            return newContacts
+            return this.contacts.find((contact) => contact.id === this.activeId)
         }
     },
     methods: {
@@ -209,25 +208,24 @@ const app = createApp({
         changeId(id) {
             this.activeId = id;
         },
-        addNewMessage() {
+        addNewMessage(text, status) {
             const newMessage = {
-                id: new Date().toISOString,
+                id: new Date().toISOString(),
                 date: new Date().toLocaleString(),
-                text: this.newMessageText,
-                status: 'sent'
+                text,
+                status
             };
 
             this.currentContact.messages.push(newMessage);
+        },
+        sendNewMessage() {
+            if (!this.newMessageText) return
+            this.addNewMessage(this.newMessageText, 'sent')
+
             this.newMessageText = '';
 
             setTimeout(() => {
-                const newMessage = {
-                    id: new Date().toISOString,
-                    date: new Date().toLocaleString(),
-                    text: 'Ok',
-                    status: 'received'
-                }
-                this.currentContact.messages.push(newMessage)
+                this.addNewMessage('Ok', 'received')
             }, 1000);
         }
     }
