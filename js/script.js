@@ -194,7 +194,8 @@ const app = createApp({
             }
         ],
         activeId: 1,
-        newMessageText: ''
+        newMessageText: '',
+        searchContact: ''
     }),
     computed: {
         currentContact() {
