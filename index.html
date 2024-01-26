@@ -52,6 +52,8 @@
                     <div class="header-info">
                         <div class="info-media">
                             <figure>
+
+                                <!-- Uso il metodo getAvatarUrl per ricarvare l'url dell'immagine -->
                                 <img :src="getAvataUrl(user)" :alt="user.name">
                             </figure>
                             <div class="info-text">
@@ -93,17 +95,26 @@
                 <!-- Sidebar Main -->
                 <section class="sidebar-main">
                     <ul>
+
+                        <!-- Uso un v-for per creare dinamicamente tutti i contatti, giro sull'array dei contatti filtrati -->
+                        <!-- Uso un @click per cambiare il contatto attivo -->
                         <li class="contacts" v-for="contact in filteredContacts" :key="contact.id"
                             @click="setActiveId(contact.id)">
                             <div class="info-media">
                                 <figure>
+
+                                    <!-- Uso il metodo getAvatarUrl per ricarvare l'url dell'immagine -->
                                     <img :src="getAvataUrl(contact)" :alt="contact.name">
                                 </figure>
                                 <div class="info-text">
                                     <h5>{{contact.name}}</h5>
+
+                                    <!-- Metto la previou dell'ultimo messaggio -->
                                     <p class="previous">{{contact.messages[contact.messages.length - 1].text}}</p>
                                 </div>
                                 <div class="info-date">
+
+                                    <!-- Metto la previou dell'orario dell'ultimo messaggio -->
                                     <time :datetime="contact.messages[contact.messages.length - 1].date">
                                         {{contact.messages[contact.messages.length- 1].date}}</time>
                                 </div>
@@ -118,13 +129,20 @@
 
                 <!-- Section Header -->
                 <header class="section-header">
+
+                    <!-- Uso un v-for per cambiare dinamicamente il contatto -->
+                    <!-- Uso un v-show per mostrare il contatto con l'id attivo -->
                     <div class="info-media" v-for="contact in contacts" :key="contact.id"
                         v-show="contact.id === activeId">
                         <figure>
+
+                            <!-- Uso il metodo getAvatarUrl per ricarvare l'url dell'immagine -->
                             <img :src="getAvataUrl(currentContact)" :alt="currentContact.name">
                         </figure>
                         <div class="info-text">
                             <h5>{{currentContact.name}}</h5>
+
+                            <!-- Ho aggiunto l'ultimo accesso con il new Date() -->
                             <p class="info-online">Ultimo accesso oggi alle {{new Date().toLocaleString()}}</p>
                         </div>
                     </div>
@@ -138,11 +156,18 @@
                 <!-- Chat -->
                 <div class="chat">
                     <ul class="pt-3">
+
+                        <!-- Uso il v-for per generare dinamicamente i messaggi della chat selezionata -->
+                        <!-- Uso un v-bind sulla classe per aggiungere dinamicamente la classe 'sent' o 'received' -->
                         <li class="chat-message sent py-2 px-4" v-for="message in currentChat" :class="message.status">
                             <div class="message rounded-3">
                                 <p>{{message.text}}</p>
                                 <time :datetime="message.date">{{message.date}}</time>
+
+                                <!-- Uso il metodo changeShow al click, per aprire il dropdown -->
                                 <i class="fa-solid fa-chevron-down" role="button" @click="changeShow(message.id)"></i>
+
+                                <!-- Uso un v-if per far comparire il dropdown -->
                                 <ul class="dropdown-menu dropdown-menu-end show" v-if="isShow">
                                     <li><a class="dropdown-item">Dettagli messaggio</a></li>
                                     <li><a class="dropdown-item">Elimina messaggio</a></li>
@@ -159,6 +184,9 @@
                             <i class="fa-regular fa-face-smile" role="button"></i>
                         </div>
                         <div class="col-10">
+
+                            <!-- Uso il v-model per collegare l'input al newMessageText -->
+                            <!-- Uso un keyup.enter per usare il metodo sendNewMessage -->
                             <input type="text" class="form-control" placeholder="Scrivi un messaggio"
                                 v-model.trim="newMessageText" @keyup.enter="sendNewMessage">
                         </div>
