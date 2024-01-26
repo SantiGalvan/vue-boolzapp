@@ -205,7 +205,7 @@ const app = createApp({
         getAvataUrl({ avatar }) {
             return `img/avatar${avatar}.jpg`
         },
-        changeId(id) {
+        setActiveId(id) {
             this.activeId = id;
         },
         addNewMessage(text, status) {
