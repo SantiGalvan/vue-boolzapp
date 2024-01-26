@@ -203,6 +203,10 @@ const app = createApp({
         },
         currentChat() {
             return this.currentContact.messages
+        },
+        filteredContacts() {
+            const searchTerm = this.searchContact.toLowerCase();
+            return this.contacts.filter((contact) => contact.name.toLowerCase().includes(searchTerm))
         }
     },
     methods: {
