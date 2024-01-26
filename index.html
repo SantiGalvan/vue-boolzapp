@@ -136,7 +136,11 @@
                             <div class="message rounded-3">
                                 <p>{{message.text}}</p>
                                 <time :datetime="message.date">{{message.date}}</time>
-                                <i class="fa-solid fa-chevron-down" role="button"></i>
+                                <i class="fa-solid fa-chevron-down" role="button" @click="changeShow(message.id)"></i>
+                                <ul class="dropdown-menu dropdown-menu-end show" v-if="isShow">
+                                    <li><a class="dropdown-item">Dettagli messaggio</a></li>
+                                    <li><a class="dropdown-item">Elimina messaggio</a></li>
+                                </ul>
                             </div>
                         </li>
                     </ul>
