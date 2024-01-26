@@ -193,7 +193,8 @@ const app = createApp({
                 ],
             }
         ],
-        activeId: 1
+        activeId: 1,
+        newMessageText: ''
     }),
     computed: {
         currentContact() {
@@ -207,6 +208,19 @@ const app = createApp({
         },
         changeId(id) {
             this.activeId = id;
+        },
+        addNewMessage() {
+            console.log('Devi aggiungere ' + this.newMessageText)
+
+            const newMessage = {
+                id: new Date().toISOString,
+                date: new Date().toLocaleString(),
+                text: this.newMessageText,
+                status: 'sent'
+            }
+
+            this.currentContact.messages.push(newMessage);
+            this.newMessageText = '';
         }
     }
 });
