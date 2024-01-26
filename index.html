@@ -115,10 +115,10 @@
                     <div class="info-media" v-for="contact in contacts" :key="contact.id"
                         v-show="contact.id === activeId">
                         <figure>
-                            <img :src="getAvataUrl(currentContact)" :alt="contact.name">
+                            <img :src="getAvataUrl(currentContact)" :alt="currentContact.name">
                         </figure>
                         <div class="info-text">
-                            <h5>{{contact.name}}</h5>
+                            <h5>{{currentContact.name}}</h5>
                         </div>
                     </div>
                     <div class="info-actions">
@@ -135,7 +135,7 @@
                             :class="message.status">
                             <div class="message p-2 rounded-3">
                                 <p>{{message.text}}</p>
-                                <time datetime="2021-08-03-T09:53">{{message.date}}</time>
+                                <time :datetime="message.date">{{message.date}}</time>
                             </div>
                         </li>
                     </ul>
